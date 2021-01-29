@@ -1,0 +1,33 @@
+.title h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: xxx-large;
+  color: grey;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.login {
+    background-image: url('../../assets//images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 25px;
+    height: 680px;
+    position: relative;
+}
+
+.login-container {
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  width: 100%;
+  border-radius: 20px;
+}

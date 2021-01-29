@@ -1,0 +1,11 @@
+.flag {
+    width: 50px;
+}
+
+.edit-button {
+    float: right;
+}
+
+.mat-paginator {
+    background: none;
+}

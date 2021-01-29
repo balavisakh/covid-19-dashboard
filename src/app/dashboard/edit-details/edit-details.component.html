@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="title">Edit {{selectedCountryStatistics.country}}</h1>
+            <hr>
+        </div>
+    </div>
+    <mat-card class="editDetailsCard" [formGroup] = "statistics">
+        <div class="row">
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Cases</mat-label>
+                    <input matInput formControlName="cases">
+                  </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Deaths</mat-label>
+                    <input matInput formControlName="deaths">
+                  </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Recovered</mat-label>
+                    <input matInput formControlName="recovered">
+                  </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Tests</mat-label>
+                    <input matInput formControlName="tests">
+                  </mat-form-field>
+            </div>
+        </div>
+    </mat-card>
+    <div class="action-buttons mt-4">
+        <button mat-raised-button class="cancel-button">cancel</button>
+        <button (click)= onSubmit() mat-raised-button color="primary" class="save-button ml-3">save</button>
+    </div>
+</div>

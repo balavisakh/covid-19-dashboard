@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row mt-4 header">
+        <div class="col-lg-3">
+            <h1>Countries</h1>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Search</mat-label>
+                <input [(ngModel)]="country" matInput>
+              </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Sort By</mat-label>
+                <mat-select disableRipple (selectionChange)="sort($event.value)">
+                  <mat-option value='{"field":"country","sort":"ascending"}'>Country name</mat-option>
+                  <mat-option value='{"field":"cases","sort":"ascending"}'>Number of cases</mat-option>
+                  <mat-option value='{"field":"deaths","sort":"ascending"}'>Number of deaths</mat-option>
+                  <mat-option value='{"field":"recovered","sort":"ascending"}'>Number of recovered</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        {{selectedSort}}
+        <div class="col-lg-3">
+            <mat-paginator [hidePageSize]= "true" [pageSizeOptions]="[30]"></mat-paginator>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 mt-4" *ngFor="let countryWiseCovid of countryWiseCovidStatusObs | async | filter:country">
+            <mat-card>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img class="flag" src="{{countryWiseCovid.countryInfo.flag}}" alt="countryFlag">
+                    </div>
+                    <div class="col-lg-6">
+                        {{countryWiseCovid.country}}
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        Cases<br>
+                        {{countryWiseCovid.cases}}
+                    </div>
+                    <div class="col-lg-4">
+                        Deaths<br>
+                        {{countryWiseCovid.deaths}}
+                    </div>
+                    <div class="col-lg-4">
+                        Recovered<br>
+                        {{countryWiseCovid.recovered}}
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        Tests<br>
+                        {{countryWiseCovid.tests}}
+                    </div>
+                    <div class="col-lg-4">
+                        Population
+                        {{countryWiseCovid.population | numberSuffix}}
+                    </div>
+                    <div class="col-lg-4">
+                        <button (click)="editDetails(countryWiseCovid)" class="edit-button" mat-mini-fab color="none"  aria-label="Example icon button with a edit icon">
+                            <mat-icon color="primary">edit</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

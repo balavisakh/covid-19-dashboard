@@ -1,0 +1,29 @@
+<div class="login">
+    <div class="container-fluid login-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="title">
+                    <h1>COVID - 19</h1>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="loginForm"  [formGroup]="loginformGroup">
+                    <mat-card>
+                        <mat-form-field appearance="standard">
+                            <mat-label>username</mat-label>
+                            <input matInput formControlName="username">
+                            <mat-error *ngIf="username.invalid">{{usernameErrorMessage()}}</mat-error>
+                          </mat-form-field><br>
+                          <mat-form-field appearance="standard">
+                            <mat-label>password</mat-label>
+                            <input matInput formControlName="password" type="password">
+                            <mat-error *ngIf="password.invalid">{{passwordErrorMessage()}}</mat-error>
+                          </mat-form-field><br>
+                          <button [disabled]="loginformGroup.invalid" (click)="login()" class="mt-5" mat-raised-button color="primary">Login</button>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
