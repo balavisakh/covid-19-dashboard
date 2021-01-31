@@ -10,6 +10,7 @@ export class CovidService {
   api_url = environment.api_url;
   covidDetailsByCountry: any = [];
   selectedCountryStatistics;
+  editedData;
   constructor(private http: HttpClient) {}
 
   getAllCovidDetails(): Observable<any> {
@@ -19,7 +20,8 @@ export class CovidService {
   getAllCovidDetailsByCountry(){
     return this.http.get(this.api_url + `/v2/countries`).pipe(map((statistics)=>{
       this.covidDetailsByCountry = statistics;
-      console.log(this.covidDetailsByCountry,"service")
+      // this.sendEditedCovidDetail(this.editedData);
+      // console.log(this.covidDetailsByCountry,"service")
       return this.covidDetailsByCountry;
     }))
   }
@@ -40,13 +42,15 @@ export class CovidService {
   }
 
   sendEditedCovidDetail(editedValues) {
+    this.editedData = editedValues;
+    console.log(editedValues,"editttt")
     this.covidDetailsByCountry.map((covidDetails)=>{
-      if(editedValues.cases === covidDetails.cases) {
-      covidDetails.cases = editedValues.cases;
-      covidDetails.deaths = editedValues.deaths;
-      covidDetails.recovered = editedValues.recovered;
-      covidDetails.tests = editedValues.tests;
-      }
+      if(editedValues.country === covidDetails.country) {
+      covidDetails.cases = +editedValues.cases;
+      covidDetails.deaths = +editedValues.deaths;
+      covidDetails.recovered = +editedValues.recovered;
+      covidDetails.tests = +editedValues.tests;
+    }
       return covidDetails;
     })
     console.log(this.covidDetailsByCountry,"edited");

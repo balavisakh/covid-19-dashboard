@@ -3,33 +3,33 @@
   mode="indeterminate"
 ></mat-progress-bar>
 <div class="container" *ngIf="covidStatistics">
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-lg-12">
       <h1 class="total">Total</h1>
       <hr class="total-title-line" />
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-lg-4">
-      <mat-card>
+      <mat-card class="text-center card">
         <h2>Total Cases</h2>
         <p>{{ covidStatistics.cases }}</p>
       </mat-card>
     </div>
     <div class="col-lg-4">
-      <mat-card>
+      <mat-card class="text-center card">
         <h2>Total Deaths</h2>
         <p>{{ covidStatistics.deaths }}</p>
       </mat-card>
     </div>
     <div class="col-lg-4">
-      <mat-card>
+      <mat-card class="text-center card">
         <h2>Total Recovered</h2>
         <p>{{ covidStatistics.recovered }}</p>
       </mat-card>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-lg-12">
       <h1 class="today">Today</h1>
       <hr />
@@ -37,19 +37,19 @@
   </div>
   <div class="row">
       <div class="col-lg-4">
-        <mat-card>
+        <mat-card class="text-center card">
             <h2>Cases</h2>
             <p>{{ covidStatistics.todayCases }}</p>
           </mat-card> 
       </div>
       <div class="col-lg-4">
-        <mat-card>
+        <mat-card class="text-center card">
             <h2>Deaths</h2>
             <p>{{ covidStatistics.todayDeaths }}</p>
           </mat-card> 
       </div>
       <div class="col-lg-4">
-        <mat-card>
+        <mat-card class="text-center card">
             <h2>Recovered</h2>
             <p>{{ covidStatistics.todayRecovered }}</p>
           </mat-card> 
