@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { CovidService } from '../../services/covid.service';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './country-statistics.component.html',
   styleUrls: ['./country-statistics.component.css'],
 })
-export class CountryStatisticsComponent implements OnInit {
+export class CountryStatisticsComponent implements OnInit, AfterViewInit {
   countryWiseCovidStatus: any = [];
   country;
   selectedSort;
@@ -19,6 +19,15 @@ export class CountryStatisticsComponent implements OnInit {
   constructor(private covidService: CovidService, private router: Router) {}
 
   ngOnInit(): void {
+    let editedValue = this.getEditedValues();
+    if (!editedValue.length) {
+      this.getAllCovidDetailsByCountry();
+    } else {
+      this.setDataSource(editedValue);
+    }
+  }
+
+  ngAfterViewInit() {
     let editedValue = this.getEditedValues();
     if (!editedValue.length) {
       this.getAllCovidDetailsByCountry();

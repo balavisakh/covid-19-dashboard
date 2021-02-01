@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   passwordErrorMessage() {
-    if (this.username.hasError('required')) {
+    if (this.password.hasError('required')) {
       return 'You must enter a password';
     }
   }
