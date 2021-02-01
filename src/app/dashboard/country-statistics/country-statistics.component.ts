@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CovidService } from '../../services/covid.service';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,23 +9,14 @@ import { Observable } from 'rxjs';
   templateUrl: './country-statistics.component.html',
   styleUrls: ['./country-statistics.component.css'],
 })
-export class CountryStatisticsComponent implements OnInit, AfterViewInit {
+export class CountryStatisticsComponent implements AfterViewInit {
   countryWiseCovidStatus: any = [];
   country;
   selectedSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource: MatTableDataSource<any>;
   countryWiseCovidStatusObs: Observable<any>;
-  constructor(private covidService: CovidService, private router: Router) {}
-
-  ngOnInit(): void {
-    let editedValue = this.getEditedValues();
-    if (!editedValue.length) {
-      this.getAllCovidDetailsByCountry();
-    } else {
-      this.setDataSource(editedValue);
-    }
-  }
+  constructor(private covidService: CovidService, private router: Router, private cdref: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     let editedValue = this.getEditedValues();
@@ -34,6 +25,7 @@ export class CountryStatisticsComponent implements OnInit, AfterViewInit {
     } else {
       this.setDataSource(editedValue);
     }
+    this.cdref.detectChanges();
   }
 
   getAllCovidDetailsByCountry() {
