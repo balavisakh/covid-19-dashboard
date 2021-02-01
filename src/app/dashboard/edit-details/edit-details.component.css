@@ -6,3 +6,12 @@
 .editDetailsCard {
     width: 50%;
 }
+
+.title-line {
+    width: 33%;
+    margin-left: 10px;
+}
+
+.title {
+    display: flex;
+}

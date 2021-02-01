@@ -4,8 +4,32 @@
 
 .edit-button {
     float: right;
+    border: 1px solid #673ab7;
 }
 
 .mat-paginator {
     background: none;
+}
+
+.mat-card {
+    border: 1px solid #673ab7;
+}
+
+.country-name {
+    font-size: x-large;
+    color: #673ab7;
+}
+
+.statistics {
+    font-weight: 500;
+}
+
+.statistic-title {
+    font-weight: 300;
+}
+
+.countries-title {
+    font-size: xx-large;
+    color: #80808085;
+    margin-top: 15px;
 }

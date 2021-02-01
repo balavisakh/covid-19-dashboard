@@ -1,3 +1,27 @@
 .card {
     border: 1px solid #673ab7;
+    color: #673ab7;
+    width: 60%;
+    padding: 40px;
+}
+
+.title-line {
+    width: 80%;
+    margin-left: 10px;
+    margin-top: 0.7rem;
+}
+
+.title {
+    display: flex;
+    font-size: xx-large;
+    color: #80808085;
+}
+
+.total-statistics {
+    font-size: x-large;
+}
+
+p.total-title {
+    font-size: large;
+    font-weight: 300;
 }

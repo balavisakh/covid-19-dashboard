@@ -3,55 +3,67 @@
   mode="indeterminate"
 ></mat-progress-bar>
 <div class="container" *ngIf="covidStatistics">
-  <div class="row mt-4">
-    <div class="col-lg-12">
-      <h1 class="total">Total</h1>
-      <hr class="total-title-line" />
+  <div class="row mt-5">
+    <div class="col-lg-12 title">
+      <p class="total">Total</p>
+      <hr class="title-line" />
     </div>
   </div>
-  <div class="row mt-4">
+  <div class="row mt-5">
     <div class="col-lg-4">
       <mat-card class="text-center card">
-        <h2>Total Cases</h2>
-        <p>{{ covidStatistics.cases }}</p>
+        <div class="total-wrapper">
+          <p class="total-title">Total Cases</p>
+        <p class="total-statistics">{{ covidStatistics.cases }}</p>
+        </div>
       </mat-card>
     </div>
     <div class="col-lg-4">
       <mat-card class="text-center card">
-        <h2>Total Deaths</h2>
-        <p>{{ covidStatistics.deaths }}</p>
+        <div class="total-wrapper">
+          <p class="total-title">Total Deaths</p>
+        <p class="total-statistics">{{ covidStatistics.deaths }}</p>
+        </div>
       </mat-card>
     </div>
     <div class="col-lg-4">
       <mat-card class="text-center card">
-        <h2>Total Recovered</h2>
-        <p>{{ covidStatistics.recovered }}</p>
+        <div class="total-wrapper">
+          <p class="total-title">Total Recovered</p>
+        <p class="total-statistics">{{ covidStatistics.recovered }}</p>
+        </div>
       </mat-card>
     </div>
   </div>
-  <div class="row mt-4">
-    <div class="col-lg-12">
-      <h1 class="today">Today</h1>
-      <hr />
+  <div class="row mt-5">
+    <div class="col-lg-12 title">
+      <p class="today">Today</p>
+      <hr class="title-line"/>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-5">
       <div class="col-lg-4">
         <mat-card class="text-center card">
-            <h2>Cases</h2>
-            <p>{{ covidStatistics.todayCases }}</p>
+            <div class="total-wrapper">
+              <p class="total-title">Cases</p>
+            <p class="total-statistics">{{ covidStatistics.todayCases }}</p>
+            </div>
           </mat-card> 
       </div>
       <div class="col-lg-4">
         <mat-card class="text-center card">
-            <h2>Deaths</h2>
-            <p>{{ covidStatistics.todayDeaths }}</p>
+            <div class="total-wrapper">
+              <p class="total-title">Deaths</p>
+            <p class="total-statistics">{{ covidStatistics.todayDeaths }}</p>
+            </div>
           </mat-card> 
       </div>
       <div class="col-lg-4">
         <mat-card class="text-center card">
-            <h2>Recovered</h2>
-            <p>{{ covidStatistics.todayRecovered }}</p>
+            <div class="total-wrapper">
+              <p class="total-title">Recovered</p>
+            <p class="total-statistics">{{ covidStatistics.todayRecovered }}</p>
+            </div>
           </mat-card> 
       </div>
   </div>

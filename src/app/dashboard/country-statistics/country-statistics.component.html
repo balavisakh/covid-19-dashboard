@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row mt-4 header">
         <div class="col-lg-3">
-            <h1>Countries</h1>
+            <h1 class="countries-title">Countries</h1>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="outline" (keyup)="getSearchValue($event)">
@@ -22,42 +22,42 @@
         </div>
         {{selectedSort}}
         <div class="col-lg-3">
-            <mat-paginator [hidePageSize]= "true" [pageSizeOptions]="[30]"></mat-paginator>
+            <mat-paginator class="paginator" [hidePageSize]= "true" [pageSizeOptions]="[30]"></mat-paginator>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4 mt-4" *ngFor="let countryWiseCovid of countryWiseCovidStatusObs | async">
+        <div class="col-lg-4 mt-5" *ngFor="let countryWiseCovid of countryWiseCovidStatusObs | async">
             <mat-card>
                 <div class="row">
                     <div class="col-lg-6">
                         <img class="flag" src="{{countryWiseCovid.countryInfo.flag}}" alt="countryFlag">
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" class="country-name">
                         {{countryWiseCovid.country}}
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-4">
-                        Cases<br>
-                        {{countryWiseCovid.cases}}
+                        <p class="statistic-title">Cases</p>
+                    <p class="statistics">{{countryWiseCovid.cases}}</p>
                     </div>
                     <div class="col-lg-4">
-                        Deaths<br>
-                        {{countryWiseCovid.deaths}}
+                        <p class="statistic-title">Deaths</p>
+                        <p class="statistics">{{countryWiseCovid.deaths}}</p>
                     </div>
                     <div class="col-lg-4">
-                        Recovered<br>
-                        {{countryWiseCovid.recovered}}
+                        <p class="statistic-title">Recovered</p>
+                        <p class="statistics">{{countryWiseCovid.recovered}}</p>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-4">
-                        Tests<br>
-                        {{countryWiseCovid.tests}}
+                        <p class="statistic-title">Tests</p>
+                        <p class="statistics">{{countryWiseCovid.tests}}</p>
                     </div>
                     <div class="col-lg-4">
-                        Population
-                        {{countryWiseCovid.population | numberSuffix}}
+                        <p class="statistic-title">Population</p>
+                        <p class="statistics">{{countryWiseCovid.population | numberSuffix}}</p>
                     </div>
                     <div class="col-lg-4">
                         <button (click)="editDetails(countryWiseCovid)" class="edit-button" mat-mini-fab color="none"  aria-label="Example icon button with a edit icon">
