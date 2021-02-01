@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   getAllCovidData() {
     this.covidService.getAllCovidDetails().subscribe((statistics)=>{
       this.covidStatistics = statistics;
-      console.log(this.covidStatistics,"covidStatistics");
     })
   }
 }

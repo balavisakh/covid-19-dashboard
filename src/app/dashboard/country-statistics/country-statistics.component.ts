@@ -31,7 +31,6 @@ export class CountryStatisticsComponent implements AfterViewInit {
   getAllCovidDetailsByCountry() {
     this.covidService.getAllCovidDetailsByCountry().subscribe(() => {
       this.setDataSource(this.getEditedValues());
-      // this.countryWiseCovidStatus = value;
     });
   }
   setDataSource(value) {
@@ -39,7 +38,6 @@ export class CountryStatisticsComponent implements AfterViewInit {
     this.dataSource = new MatTableDataSource<any>(value);
     this.dataSource.paginator = this.paginator;
     this.countryWiseCovidStatusObs = this.dataSource.connect();
-    console.log(this.countryWiseCovidStatus, 'this.countryWiseCovidStatus');
   }
 
   editDetails(countryDetails) {
@@ -63,7 +61,6 @@ export class CountryStatisticsComponent implements AfterViewInit {
     this.countryWiseCovidStatusObs = this.countryWiseCovidStatus;
     this.dataSource = new MatTableDataSource<any>(this.countryWiseCovidStatus);
     this.countryWiseCovidStatusObs = this.dataSource.connect();
-    console.log(this.countryWiseCovidStatus);
   }
 
   getSearchValue(searchValue) {

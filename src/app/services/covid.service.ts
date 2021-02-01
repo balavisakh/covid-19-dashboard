@@ -20,8 +20,6 @@ export class CovidService {
   getAllCovidDetailsByCountry(){
     return this.http.get(this.api_url + `/v2/countries`).pipe(map((statistics)=>{
       this.covidDetailsByCountry = statistics;
-      // this.sendEditedCovidDetail(this.editedData);
-      // console.log(this.covidDetailsByCountry,"service")
       return this.covidDetailsByCountry;
     }))
   }
@@ -43,7 +41,6 @@ export class CovidService {
 
   sendEditedCovidDetail(editedValues) {
     this.editedData = editedValues;
-    console.log(editedValues,"editttt")
     this.covidDetailsByCountry.map((covidDetails)=>{
       if(editedValues.country === covidDetails.country) {
       covidDetails.cases = +editedValues.cases;
@@ -53,7 +50,6 @@ export class CovidService {
     }
       return covidDetails;
     })
-    console.log(this.covidDetailsByCountry,"edited");
   }
 }
 
