@@ -3,7 +3,9 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 60px;
+  background-color: #673ab7;
+  border-radius: 7px;
 }
 
 .sidenav .mat-toolbar {
@@ -24,3 +26,13 @@
   position: absolute;
   bottom: 0;
 }
+
+.mat-icon {
+  color: #fff;
+}
+
+@media only screen and (min-width : 992px) {
+  .toolbar {
+    display: none !important;
+  }
+  }

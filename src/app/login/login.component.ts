@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
         this.loginformGroup.value.username === 'fingent' &&
         this.loginformGroup.value.password === 'fingent'
       ) {
-        console.log(this.loginFormData);
         localStorage.setItem("username",this.loginformGroup.value.username);
         this.route.navigate(['dashboard/home']);
       }
